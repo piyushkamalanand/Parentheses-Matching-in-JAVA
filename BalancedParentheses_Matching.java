@@ -20,13 +20,12 @@ public class BalancedParentheses_Matching
 	}
 	public boolean CheckParentheses(String s)
 	{
-		char x;
-		Stack<Integer> st=new Stack<Integer>();
+		Stack<Character> st=new Stack<Character>();
 		for(int i=0;i<s.length();i++)
 		{
 			if(s.charAt(i)=='{' || s.charAt(i)=='[' || s.charAt(i)=='(')
 			{
-				st.push(i);
+				st.push(s.charAt(i));
 			}
 			if(st.isEmpty())
 			{
@@ -36,8 +35,6 @@ public class BalancedParentheses_Matching
 			{
 			case ')':
 			{
-				//x=(char) st.peek();
-				//st.pop();
 				if(st.peek()=='{' || st.peek()=='[')
 				{
 					return false;
@@ -47,8 +44,6 @@ public class BalancedParentheses_Matching
 			}
 			case '}':
 			{
-				//x=(char) st.peek();
-				//st.pop();
 				if(st.peek()=='(' || st.peek()=='[')
 				{
 					return false;
@@ -58,8 +53,6 @@ public class BalancedParentheses_Matching
 			}
 			case ']':
 			{
-				//x=(char) st.peek();
-				
 				if(st.peek()=='{' || st.peek()=='(')
 				{
 					return false;
